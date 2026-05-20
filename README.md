@@ -19,11 +19,11 @@ The goal is to extract meaningful business insights such as sales performance, c
 
 ## Project Structure
 
-1. Database Setup
+## 1. Database Setup
 Database Creation: The project starts by creating a database named p1_retail_db.
 Table Creation: A table named retail_sales is created to store the sales data. The table structure includes columns for transaction ID, sale date, sale time, customer ID, gender, age, product category, quantity sold, price per unit, cost of goods sold (COGS), and total sale amount.
 ```sql
-CREATE DATABASE p1_retail_db;
+CREATE DATABASE sql_project_p2;
 ```
 ```sql
 CREATE TABLE retail_sales
@@ -41,7 +41,10 @@ CREATE TABLE retail_sales
     total_sale FLOAT
 );
 ```
-2. Data Exploration & Cleaning
+## 2. Data Import 
+Import SQL_Retail Sales Analysis_utf.csv file to the retail_sales table in mysql through Import/export option
+
+## 3. Data Exploration & Cleaning
 
 Record Count: Determine the total number of records in the dataset.
 ```sql

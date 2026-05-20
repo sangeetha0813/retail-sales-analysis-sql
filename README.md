@@ -1,4 +1,4 @@
-# Retail Sales Analysis SQL Project
+# ** Retail Sales Analysis SQL Project **
 
 ## Project Overview
 This project focuses on analyzing retail sales data using SQL. Invovles techniques typically used by data analysts to explore, clean, and analyze retail sales data. 
@@ -22,8 +22,10 @@ The goal is to extract meaningful business insights such as sales performance, c
 1. Database Setup
 Database Creation: The project starts by creating a database named p1_retail_db.
 Table Creation: A table named retail_sales is created to store the sales data. The table structure includes columns for transaction ID, sale date, sale time, customer ID, gender, age, product category, quantity sold, price per unit, cost of goods sold (COGS), and total sale amount.
+```sql
 CREATE DATABASE p1_retail_db;
 
+```sql
 CREATE TABLE retail_sales
 (
     transactions_id INT PRIMARY KEY,
@@ -42,26 +44,33 @@ CREATE TABLE retail_sales
 2. Data Exploration & Cleaning
 
 Record Count: Determine the total number of records in the dataset.
-Customer Count: Find out how many unique customers are in the dataset.
-Category Count: Identify all unique product categories in the dataset.
-Null Value Check: Check for any null values in the dataset and delete records with missing data.
+```sql
 SELECT COUNT(*) FROM retail_sales;
+```
+Customer Count: Find out how many unique customers are in the dataset.
+```sql
 SELECT COUNT(DISTINCT customer_id) FROM retail_sales;
+```
+Category Count: Identify all unique product categories in the dataset.
+```sql
 SELECT DISTINCT category FROM retail_sales;
-
+```
+Null Value Check: Check for any null values in the dataset and delete records with missing data.
+```sql
 SELECT * FROM retail_sales
 WHERE 
     sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
     gender IS NULL OR age IS NULL OR category IS NULL OR 
     quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
-
+```
+```sql
 DELETE FROM retail_sales
 WHERE 
     sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
     gender IS NULL OR age IS NULL OR category IS NULL OR 
     quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
-
-## 📂 Dataset Description
+```
+##  Dataset Description
 The dataset contains retail transaction-level data including:
 - Transaction ID
 - Sale Date & Time
@@ -71,7 +80,7 @@ The dataset contains retail transaction-level data including:
 - Total Sale Amount
 
 
-## 📊 Business Problems & SQL Analysis
+##  Business Problems & SQL Analysis
 
 ### 1. Retrieve sales made on a specific date
 ```sql
@@ -115,7 +124,7 @@ from retail_sales
 group by gender, category;
 ```
 
-### 7. 7. Best selling month in each year
+### 7. Best selling month in each year
 ```sql
 with cte as (
     select 
@@ -171,7 +180,7 @@ group by shift;
 
 
 Key Insights
-************
+-------------
 Identified top-performing product categories
 Found high-value customers based on total spending
 Analyzed peak sales time periods (shifts)
